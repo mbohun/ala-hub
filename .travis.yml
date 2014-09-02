@@ -3,16 +3,20 @@ language: groovy
 jdk:
   - oraclejdk7
 
+env:
+  - GRAILS_VERSION=2.3.11
+
 branches:
   only:
     - master
 
 before_install:
- - sudo add-apt-repository -y ppa:groovy-dev/grails
- - sudo apt-get update
- - sudo apt-get -y install grails-ppa
- - sudo apt-get install grails-2.3.x
+- rm -rf ~/.gvm
+- curl -s get.gvmtool.net > ~/install_gvm.sh
+- chmod 775 ~/install_gvm.sh
+- ~/install_gvm.sh
+- echo "gvm_auto_answer=true" > ~/.gvm/etc/config
+- source ~/.gvm/bin/gvm-init.sh
+- gvm install grails $GRAILS_VERSION || true
 
-script: grails refresh-dependencies
-  && grails "prod maven-install"
-  && grails "prod maven-deploy"
+script: grails clean && grails upgrade --non-interactive && grails refresh-dependencies  && grails "prod maven-install" && grails "prod maven-deploy"

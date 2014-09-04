@@ -3,9 +3,6 @@ language: groovy
 jdk:
   - oraclejdk7
 
-env:
-  - GRAILS_VERSION=2.3.11
-
 branches:
   only:
     - master
@@ -23,5 +20,6 @@ script: grails clean && grails upgrade --non-interactive && grails refresh-depen
 
 env:
   global:
+    - GRAILS_VERSION=2.3.11
     - secure: "egPgNwFzi9gMVdPT2aC4gQx7jQXflFXnzvSTQaFFUI5I3By0Y7/EeBQVYLKQ8+6DMpSt4Xzdp5g+M2N3NNo6QSotHFdljcEgkULQpYBcRjmwFzFYeKVrKD0sAfTZH+8POeG+TeMxOJk2ytySGm9MQdz743xudPMSLeB2nUIVhOw="
     - secure: "SPz6iyQ2z4aQmhPpP1POQIYLwU7IK4HWa6nrzbI1g/j5CXZpac6K03CZZWw1YryNpRbB1WNDyK35B5WJqto19AGDxmjMQ8Ft01w/51twDYVNwKXRrNb+fXy+zT9Fx5r/1Z3fRm71pzOoWIPdOC66hXvOLXfUiJudImReP3kFojI="

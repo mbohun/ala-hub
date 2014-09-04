@@ -69,5 +69,5 @@ grails.project.dependency.resolution = {
 }
 
 grails.project.repos.testRepo.url      = "scp://maven.ala.org.au:/data/maven"
-grails.project.repos.testRepo.username = System.getenv(TRAVIS_DEPLOY_USERNAME)
-grails.project.repos.testRepo.password = System.getenv(TRAVIS_DEPLOY_PASSWORD)
+grails.project.repos.testRepo.username = System.getenv("TRAVIS_DEPLOY_USERNAME")
+grails.project.repos.testRepo.password = System.getenv("TRAVIS_DEPLOY_PASSWORD")
